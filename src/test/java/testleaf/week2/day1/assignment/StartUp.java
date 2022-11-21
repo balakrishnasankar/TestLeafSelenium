@@ -1,4 +1,4 @@
-package testleaf.week2.day1.selenium.assignment;
+package testleaf.week2.day1.assignment;
 
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -9,13 +9,13 @@ public class StartUp {
 		ChromeDriver driver;
 
 		CreateLeadCRM create = new CreateLeadCRM();
-		driver = create.createLead("C02M");
+		driver = create.createLead("C08M");
 		driver.close();
 		EditLead edit = new EditLead();
-		driver = edit.editLead("C03M");
+		driver = edit.editLead("C09M");
 		driver.close();
 		DuplicateLead lead = new DuplicateLead();
-		driver = lead.duplicateLead("06M", "07M");
+		driver = lead.duplicateLead("10M", "11M");
 		driver.close();
 	}
 

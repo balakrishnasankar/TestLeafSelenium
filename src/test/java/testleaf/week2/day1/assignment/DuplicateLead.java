@@ -1,4 +1,4 @@
-package testleaf.week2.day1.selenium.assignment;
+package testleaf.week2.day1.assignment;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
