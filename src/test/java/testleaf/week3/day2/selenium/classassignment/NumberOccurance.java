@@ -25,5 +25,7 @@ public class NumberOccurance {
 			System.out.println("Entry \t"+ e.getKey() +"\toccurence  \t"+ e.getValue());
 		}
 	}
+	
+	
 
 }
