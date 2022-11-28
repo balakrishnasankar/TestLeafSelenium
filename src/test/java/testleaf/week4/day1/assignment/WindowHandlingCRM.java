@@ -3,6 +3,7 @@ package testleaf.week4.day1.assignment;
 import java.time.Duration;
 import java.util.Set;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -32,7 +33,6 @@ public class WindowHandlingCRM {
 		Set<String> windowhandles = driver.getWindowHandles();
 		for (String s : windowhandles) {
 			if (driver.switchTo().window(s).getTitle().contains("Find Contacts")) {
-				System.out.println("1");
 				Thread.sleep(6000);
 				Actions actions = new Actions(driver);			
 				String elementLocator = driver.findElement(By.xpath("(//table[@class='x-grid3-row-table']//tr//td)[1]")).getText();				
@@ -50,9 +50,8 @@ public class WindowHandlingCRM {
 		Set<String> windowhandles1 = driver.getWindowHandles();
 		for (String s : windowhandles1) {
 			if (driver.switchTo().window(s).getTitle().contains("Find Contacts")) {
-				System.out.println("2");
 				Thread.sleep(6000);		
-				String elementLocator = driver.findElement(By.xpath("(//table[contains(@class,'x-grid3-cell-inner x-grid3-col-partyId')]//tr)[2]//td[1]")).getText();				
+				String elementLocator = driver.findElement(By.xpath("((//table[@class='x-grid3-row-table'])[2]//tr//td)[1]")).getText();				
 				driver.findElement(By.xpath("//input[@name='id']")).sendKeys(elementLocator);
 				driver.findElement(By.xpath("//button[text()='Find Contacts']")).click();
 				Thread.sleep(4000);
@@ -62,7 +61,16 @@ public class WindowHandlingCRM {
 		}
 		
 		driver.switchTo().window(parent1);
-		driver.findElement(By.xpath("(//a[text()='Merge']")).click();
+		Thread.sleep(4000);	
+		driver.findElement(By.xpath("//a[text()='Merge']")).click();
+		Alert alert = driver.switchTo().alert();
+		alert.accept();
+		if(driver.findElement(By.xpath("//div[@id='sectionHeaderTitle_contacts']")).isDisplayed()) {
+			System.out.println("Alert PASSED ");
+		}else {
+			System.out.println("Alert FAILED ");
+		}
+		
 		
 
 	}
